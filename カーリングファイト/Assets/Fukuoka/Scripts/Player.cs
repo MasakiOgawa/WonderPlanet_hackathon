@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 
     Rigidbody2D rig2D;
 
-    public bool bUse = false;
+	public bool bUse = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -31,7 +31,14 @@ public class Player : MonoBehaviour {
             }
         }
 
-    }
+		Debug.Log("x:"+ rig2D.velocity.x);
+
+		if (rig2D.velocity.x > 0)
+		{
+			rig2D.velocity -= new Vector2(0.1f, 0);
+		}
+
+	}
 
 
     void OnCollisionEnter2D(Collision2D collision)
