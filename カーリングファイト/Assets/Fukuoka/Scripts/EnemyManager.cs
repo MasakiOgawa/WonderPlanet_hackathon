@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour {
 
     public void Generate(int nAttack)
     {
-        Obj = (GameObject)Instantiate(Resources.Load("Prefab/Player"));
+        Obj = (GameObject)Instantiate(Resources.Load("Prefab/Enemy"));
         Obj.transform.parent = transform;
         Obj.GetComponent<PlayerStatus>().Attack = nAttack;
     }
