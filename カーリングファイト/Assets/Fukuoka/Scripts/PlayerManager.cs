@@ -20,10 +20,12 @@ public class PlayerManager : MonoBehaviour {
         Life -= n;
     }
 
-    public void Generate(int nAttack)
+    public GameObject Generate(int nAttack)
     {
         Obj = (GameObject)Instantiate(Resources.Load("Prefab/Player"));
         Obj.transform.parent = transform;
         Obj.GetComponent<PlayerStatus>().Attack = nAttack;
+
+        return Obj;
     }
 }

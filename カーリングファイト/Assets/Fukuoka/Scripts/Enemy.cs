@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 
     Rigidbody2D rig2D;
 
-    bool bUse = false;
+    public bool bUse = false;
 
     // Use this for initialization
     void Awake()
@@ -23,15 +23,15 @@ public class Enemy : MonoBehaviour {
     {
 
 
-        //if (!bUse)
-        //{
-        //    if (mGameObjectSwipe.GetComponent<Swipe>().VecPower.x > 0)
-        //    {
-        //        rig2D.velocity = new Vector2(mGameObjectSwipe.GetComponent<Swipe>().VecPower.x * 0.01f,
-        //                mGameObjectSwipe.GetComponent<Swipe>().VecPower.y * 0.01f);
-        //        bUse = true;
-        //    }
-        //}
+        if (!bUse)
+        {
+            if (mGameObjectSwipe.GetComponent<Swipe>().VecPower.x > 0)
+            {
+                rig2D.velocity = new Vector2(mGameObjectSwipe.GetComponent<Swipe>().VecPower.x * 0.01f,
+                        mGameObjectSwipe.GetComponent<Swipe>().VecPower.y * 0.01f);
+                bUse = true;
+            }
+        }
 
     }
 

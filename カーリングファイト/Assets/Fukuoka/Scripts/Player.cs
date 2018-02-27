@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 
     Rigidbody2D rig2D;
 
-    bool bUse = false;
+    public bool bUse = false;
 
 	// Use this for initialization
 	void Awake () {

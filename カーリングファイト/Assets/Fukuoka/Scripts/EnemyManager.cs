@@ -20,10 +20,12 @@ public class EnemyManager : MonoBehaviour {
         Life -= n;
     }
 
-    public void Generate(int nAttack)
+    public GameObject Generate(int nAttack)
     {
         Obj = (GameObject)Instantiate(Resources.Load("Prefab/Enemy"));
         Obj.transform.parent = transform;
-        Obj.GetComponent<PlayerStatus>().Attack = nAttack;
+        Obj.GetComponent<EnemyStatus>().Attack = nAttack;
+
+        return Obj;
     }
 }
