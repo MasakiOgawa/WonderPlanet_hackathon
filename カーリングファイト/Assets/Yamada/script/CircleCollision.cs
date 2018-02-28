@@ -8,6 +8,9 @@ public class CircleCollision : MonoBehaviour {
 	const float middleRange = 1.5f;
 	const float longRange = 1.0f;
 
+	private bool isChangedTurn;
+	private int changeCount;
+
 	[SerializeField]
 	private PlayerManager pm;
 
@@ -15,7 +18,40 @@ public class CircleCollision : MonoBehaviour {
 	private EnemyManager em;
 
 	[SerializeField]
+	private TurnManager tm;
+
+	[SerializeField]
 	private GameObject damageUI;
+
+	void Start()
+	{
+		isChangedTurn = false;
+		changeCount = 5;
+	}
+
+	void Update()
+	{
+		if(isChangedTurn)
+		{
+			changeCount--;
+		}
+
+		if(changeCount == 0)
+		{
+			// チェンジフラグ
+			isChangedTurn = false;
+			changeCount = 5;
+
+			if( tm.NowTurn )
+			{
+				tm.NowTurn = false;
+			}
+			else
+			{
+				tm.NowTurn = true;
+			}
+		}
+	}
 
 	void OnTriggerStay2D(Collider2D col)
 	{
@@ -81,6 +117,7 @@ public class CircleCollision : MonoBehaviour {
 					//Destroy(col);
 				}
 				col.gameObject.GetComponent<PlayerStatus>().IsActed = true;
+				isChangedTurn = true;
 			}
 		}
 
@@ -119,6 +156,7 @@ public class CircleCollision : MonoBehaviour {
 					//Destroy(col);
 				}
 				col.gameObject.GetComponent<EnemyStatus>().IsActed = true;
+				isChangedTurn = true;
 			}
 		}
 			
