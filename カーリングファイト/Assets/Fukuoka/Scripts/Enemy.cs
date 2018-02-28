@@ -13,13 +13,33 @@ public class Enemy : MonoBehaviour {
 
     Vector2 move;
 
-    // Use this for initialization
-    void Awake()
+    [SerializeField]
+    private Sprite Sp1;
+
+    [SerializeField]
+    private Sprite Sp2;
+
+    [SerializeField]
+    private Sprite Sp3;
+
+    [SerializeField]
+    private Sprite Sp4;
+
+    [SerializeField]
+    private SpriteRenderer SpRen;
+
+	[SerializeField]
+	private TurnManager tm;
+
+	// Use this for initialization
+	void Awake()
     {
-        move = GetComponent<PlayerStatus>().Move;
+        move = GetComponent<EnemyStatus>().Move;
         move = new Vector2(0, 0);
 
-        mGameObjectSwipe = GameObject.Find("Swaipe");
+		GameObject gb = GameObject.Find("TurnManager");
+		tm = gb.GetComponent<TurnManager>();
+		mGameObjectSwipe = GameObject.Find("Swaipe");
         rig2D = GetComponent<Rigidbody2D>();
     }
 
@@ -37,7 +57,15 @@ public class Enemy : MonoBehaviour {
             }
         }
 
-        rig2D.velocity = new Vector2(move.x, move.y);
+		if (bUse && move.x <= 0 && move.y <= 0)
+		{
+			if (tm.NowTurn)
+			{
+				tm.NowTurn = false;
+			}
+		}
+
+		rig2D.velocity = new Vector2(move.x, move.y);
 
 
         if (move.x > 0.1f)
@@ -58,7 +86,7 @@ public class Enemy : MonoBehaviour {
             move.y = 0;
         }
 
-        GetComponent<PlayerStatus>().Move = move;
+        GetComponent<EnemyStatus>().Move = move;
 
     }
 
@@ -74,6 +102,25 @@ public class Enemy : MonoBehaviour {
         if (collision.gameObject.tag == "EnemyUnit")
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity * 1.5f;
+        }
+    }
+
+    public void SetCharaType(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                SpRen.sprite = Sp1;
+                break;
+            case 2:
+                SpRen.sprite = Sp2;
+                break;
+            case 3:
+                SpRen.sprite = Sp3;
+                break;
+            case 4:
+                SpRen.sprite = Sp4;
+                break;
         }
     }
 }

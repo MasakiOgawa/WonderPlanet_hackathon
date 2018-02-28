@@ -13,6 +13,9 @@ public class EnemyCharacterSelect : MonoBehaviour
     [SerializeField]
     private EnemyUIManager EUI;
 
+    [SerializeField]
+    private int NumChara;
+
     // Use this for initialization
     void Start()
     {
@@ -22,6 +25,13 @@ public class EnemyCharacterSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EUI.EnemyObj != null)
+        {
+            if (EUI.EnemyObj.GetComponent<Enemy>().bUse == true)
+            {
+                EUI.EnemyObj = null;
+            }
+        }
     }
 
     public void OnClick()
@@ -31,7 +41,28 @@ public class EnemyCharacterSelect : MonoBehaviour
         {
             if (EUI.EnemyObj == null)
             {
-                EUI.EnemyObj = EM.Generate(20);
+                switch (NumChara)
+                {
+                    case 1:
+                        EUI.EnemyObj = EM.Generate(100);
+                        EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(1);
+                        break;
+
+                    case 2:
+                        EUI.EnemyObj = EM.Generate(200);
+                        EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(2);
+                        break;
+
+                    case 3:
+                        EUI.EnemyObj = EM.Generate(300);
+                        EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(3);
+                        break;
+
+                    case 4:
+                        EUI.EnemyObj = EM.Generate(400);
+                        EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(4);
+                        break;
+                }
             }
             else if (EUI.EnemyObj != null)
             {
@@ -39,7 +70,28 @@ public class EnemyCharacterSelect : MonoBehaviour
                 {
                     DestroyImmediate(EUI.EnemyObj);
 
-                    EUI.EnemyObj = EM.Generate(20);
+                    switch (NumChara)
+                    {
+                        case 1:
+                            EUI.EnemyObj = EM.Generate(100);
+                            EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(1);
+                            break;
+
+                        case 2:
+                            EUI.EnemyObj = EM.Generate(200);
+                            EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(2);
+                            break;
+
+                        case 3:
+                            EUI.EnemyObj = EM.Generate(300);
+                            EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(3);
+                            break;
+
+                        case 4:
+                            EUI.EnemyObj = EM.Generate(400);
+                            EUI.EnemyObj.GetComponent<Enemy>().SetCharaType(4);
+                            break;
+                    }
                 }
             }
         }

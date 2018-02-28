@@ -72,7 +72,7 @@ namespace Marvest.Units
 
         private void OnHitByUnit(PlayerUnit unit)
         {
-            StageSceneGlobalVariables.Instance.SoundEffect.PlayHitSe();
+            StageSceneGlobalVariables.Instance.SoundEffect.PlayStoneHitSe();
 			ReceiveDamage(unit.AttackPower);
 			int combo = StageSceneGlobalVariables.Instance.PlayerParty.Combo;
 			StageSceneGlobalVariables.Instance.Score += 10 * combo;	//スコア加算

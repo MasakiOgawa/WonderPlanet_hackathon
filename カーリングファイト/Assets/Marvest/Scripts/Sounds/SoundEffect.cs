@@ -4,8 +4,9 @@ namespace Marvest.Sounds
 {
     public class SoundEffect : MonoBehaviour
     {
-        public AudioClip SeHit;
+        public AudioClip SeStoneHit;
         public AudioClip SeBulletHit;
+        public AudioClip SeIceSlide;
 
         private AudioSource audioSource;
 
@@ -14,14 +15,19 @@ namespace Marvest.Sounds
             audioSource = GetComponent<AudioSource>();
         }
 
-        public void PlayHitSe()
+        public void PlayStoneHitSe()
         {
-            audioSource.PlayOneShot(SeHit);
+            audioSource.PlayOneShot(SeStoneHit);
         }
 
         public void PlayBulletHitSe()
         {
             audioSource.PlayOneShot(SeBulletHit);
+        }
+
+        public void IceSlideSe()
+        {
+            audioSource.PlayOneShot(SeIceSlide);
         }
     }
 }
