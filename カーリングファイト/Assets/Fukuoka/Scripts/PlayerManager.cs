@@ -10,6 +10,19 @@ public class PlayerManager : MonoBehaviour {
 
     GameObject Obj;
 
+    [SerializeField]
+    GameObject PlayerLifeGauge = null;
+
+    private void Start()
+    {
+        PlayerLifeGauge.GetComponent<GaugeController>().SetGaugeMax(Life);
+    }
+
+    private void Update()
+    {
+        PlayerLifeGauge.GetComponent<GaugeController>().SetGaugeValue(Life);
+    }
+
     public void AddLife(int n)
     {
         Life += n;

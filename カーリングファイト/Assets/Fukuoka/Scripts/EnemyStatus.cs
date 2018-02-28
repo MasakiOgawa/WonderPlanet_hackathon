@@ -15,4 +15,10 @@ public class EnemyStatus : MonoBehaviour {
         get;
         set;
     }
+
+    public Vector2 Move
+    {
+        get;
+        set;
+    }
 }

@@ -10,6 +10,20 @@ public class EnemyManager : MonoBehaviour {
 
     GameObject Obj;
 
+    [SerializeField]
+    GameObject EnemyLifeGauge = null;
+
+    private void Start()
+    {
+        EnemyLifeGauge.GetComponent<GaugeController>().SetGaugeMax(Life);
+    }
+
+    private void Update()
+    {
+        EnemyLifeGauge.GetComponent<GaugeController>().SetGaugeValue(Life);
+    }
+
+
     public void AddLife(int n)
     {
         Life += n;

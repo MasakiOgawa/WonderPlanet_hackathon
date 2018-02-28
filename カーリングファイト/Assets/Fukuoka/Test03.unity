@@ -1105,6 +1105,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114224572219309510, guid: 0888cf05b9b21e841aaa50517940676e,
+        type: 2}
+      propertyPath: EnemyLifeGauge
+      value: 
+      objectReference: {fileID: 1864615821}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0888cf05b9b21e841aaa50517940676e, type: 2}
   m_IsPrefabParent: 0
@@ -1666,6 +1671,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1 &1547000670 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1247562421091736, guid: c4d0293ee0b76ab49a20f70feb1d833c,
+    type: 2}
+  m_PrefabInternal: {fileID: 275077807}
 --- !u!114 &1548415417 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114174917956286598, guid: 35501c381155df14aaa466534a8f02b7,
@@ -1711,6 +1721,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114703445925802120, guid: 94d6579b05544af449c627514ed0b873,
+        type: 2}
+      propertyPath: PlayerLifeGauge
+      value: 
+      objectReference: {fileID: 1547000670}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94d6579b05544af449c627514ed0b873, type: 2}
   m_IsPrefabParent: 0
@@ -2266,6 +2281,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1 &1864615821 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1587001408929792, guid: 177446a0b70c13b4bb6dc61886b109f2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1678163249}
 --- !u!1001 &1968831436
 Prefab:
   m_ObjectHideFlags: 0

@@ -39,17 +39,27 @@ public class Player : MonoBehaviour {
 		rig2D.velocity = new Vector2(move.x, move.y);
 
         Debug.Log("moveX" + GetComponent<PlayerStatus>().Move.x);
-        Debug.Log("moveX" + GetComponent<PlayerStatus>().Move.y);
+        Debug.Log("moveY" + GetComponent<PlayerStatus>().Move.y);
 
-        if (move.x > 0)
+        if (move.x > 0.1f)
         {
             move.x *= 0.99f;
         }
+        else if (move.x <= 0.1f)
+        {
+            move.x = 0;
+        }
 
-        if (move.y > 0)
+        if (move.y > 0.1f)
         {
             move.y *= 0.99f;
         }
+        else if (move.y <= 0.1f)
+        {
+            move.y = 0;
+        }
+
+        GetComponent<PlayerStatus>().Move = move;
 
     }
 
