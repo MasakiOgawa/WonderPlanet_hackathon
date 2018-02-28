@@ -28,13 +28,18 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private SpriteRenderer SpRen;
 
-    // Use this for initialization
-    void Awake () {
+	[SerializeField]
+	private TurnManager tm;
+
+	// Use this for initialization
+	void Awake () {
 
         move = GetComponent<PlayerStatus>().Move;
         move = new Vector2(0, 0);
 
-        mGameObjectSwipe = GameObject.Find("Swaipe");
+		GameObject gb = GameObject.Find("TurnManager");
+		tm = gb.GetComponent<TurnManager>();
+		mGameObjectSwipe = GameObject.Find("Swaipe");
         rig2D = GetComponent<Rigidbody2D>();
     }
 	
@@ -50,6 +55,14 @@ public class Player : MonoBehaviour {
                 bUse = true;
             }
         }
+
+		if ( bUse && move.x <= 0 && move.y <= 0)
+		{
+			if (!tm.NowTurn)
+			{
+				tm.NowTurn = true;
+			}
+		}
 
 		rig2D.velocity = new Vector2(move.x, move.y);
 

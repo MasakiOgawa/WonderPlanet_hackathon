@@ -28,13 +28,18 @@ public class Enemy : MonoBehaviour {
     [SerializeField]
     private SpriteRenderer SpRen;
 
-    // Use this for initialization
-    void Awake()
+	[SerializeField]
+	private TurnManager tm;
+
+	// Use this for initialization
+	void Awake()
     {
-        move = GetComponent<PlayerStatus>().Move;
+        move = GetComponent<EnemyStatus>().Move;
         move = new Vector2(0, 0);
 
-        mGameObjectSwipe = GameObject.Find("Swaipe");
+		GameObject gb = GameObject.Find("TurnManager");
+		tm = gb.GetComponent<TurnManager>();
+		mGameObjectSwipe = GameObject.Find("Swaipe");
         rig2D = GetComponent<Rigidbody2D>();
     }
 
@@ -52,7 +57,15 @@ public class Enemy : MonoBehaviour {
             }
         }
 
-        rig2D.velocity = new Vector2(move.x, move.y);
+		if (bUse && move.x <= 0 && move.y <= 0)
+		{
+			if (tm.NowTurn)
+			{
+				tm.NowTurn = false;
+			}
+		}
+
+		rig2D.velocity = new Vector2(move.x, move.y);
 
 
         if (move.x > 0.1f)
@@ -73,7 +86,7 @@ public class Enemy : MonoBehaviour {
             move.y = 0;
         }
 
-        GetComponent<PlayerStatus>().Move = move;
+        GetComponent<EnemyStatus>().Move = move;
 
     }
 

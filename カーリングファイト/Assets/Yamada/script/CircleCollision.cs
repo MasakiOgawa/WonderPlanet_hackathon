@@ -55,7 +55,7 @@ public class CircleCollision : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col)
 	{
-		Vector2 move = col.gameObject.GetComponent<PlayerStatus>().Move;
+		
 		bool isActed;
 		Vector2 pos;
 		pos.x = transform.position.x;
@@ -79,15 +79,16 @@ public class CircleCollision : MonoBehaviour {
 		Debug.Log("otherPosY:" + otherPos.y);
 		Debug.Log("otherRadius:" + otherRadius);
 		Debug.Log("distance:" + distance);
-		Debug.Log(/*"moveX:" +*/ move.x);
-		Debug.Log(/*"moveY:" +*/ move.y);
+		//Debug.Log(/*"moveX:" +*/ playerMove.x);
+		//Debug.Log(/*"moveY:" +*/ playerMove.y);
 
 		if (col.gameObject.tag == "Player")
-		{	
+		{
+			Vector2 playerMove = col.gameObject.GetComponent<PlayerStatus>().Move;
 			isActed = col.gameObject.GetComponent<PlayerStatus>().IsActed;
 
 			// 行動が終わっていて、速度が0の場合
-			if (!isActed && move.x <= 0 && move.y <= 0)
+			if (!isActed && playerMove.x <= 0 && playerMove.y <= 0)
 			{
 				int playerAttackQty = col.gameObject.GetComponent<PlayerStatus>().Attack;						
 
@@ -123,12 +124,13 @@ public class CircleCollision : MonoBehaviour {
 
 		if (col.gameObject.tag == "EnemyUnit")
 		{
+			Vector2 enemyMove = col.gameObject.GetComponent<EnemyStatus>().Move;
 			isActed = col.gameObject.GetComponent<EnemyStatus>().IsActed;
 
 			// 行動が終わっていて、速度が0の場合
-			if (!isActed && move.x <= 0 && move.y <= 0)
+			if (!isActed && enemyMove.x <= 0 && enemyMove.y <= 0)
 			{
-				int enemyAttackQty = col.gameObject.GetComponent<PlayerStatus>().Attack;
+				int enemyAttackQty = col.gameObject.GetComponent<EnemyStatus>().Attack;
 
 				// サークルの中心点からの距離によるダメージ処理
 				//	>>中心～短距離

@@ -27,7 +27,7 @@ public class EnemyCharacterSelect : MonoBehaviour
     {
         if (EUI.EnemyObj != null)
         {
-            if (EUI.EnemyObj.GetComponent<Player>().bUse == true)
+            if (EUI.EnemyObj.GetComponent<Enemy>().bUse == true)
             {
                 EUI.EnemyObj = null;
             }
