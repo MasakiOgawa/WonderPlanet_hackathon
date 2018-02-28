@@ -9,9 +9,10 @@ public class GaugeController : MonoBehaviour
 	// コンスト 定数
 	private const int SUB_GAUGE = 5;
 
-	// メンバ 変数
-	private Slider Gauge;       // ゲージの情報を取得
-	private int Value;          // 現在の値
+    // メンバ 変数
+    public Slider Gauge;       // ゲージの情報を取得
+    public int Value;          // 現在の値
+    public int MaxValue;       // 最大値
 
 	private void Awake()
 	{
@@ -46,6 +47,7 @@ public class GaugeController : MonoBehaviour
 	// ゲージの最大値を設定
 	public void SetGaugeMax(int maxValue)
 	{
+        MaxValue = maxValue;
 		Gauge.maxValue = maxValue;
 		Gauge.value = maxValue;
 	}
