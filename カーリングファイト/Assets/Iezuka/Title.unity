@@ -260,6 +260,7 @@ MonoBehaviour:
   hitSE: {fileID: 0}
   sodaneSE: {fileID: 0}
   moveSE: {fileID: 0}
+  waitTimeSE: 0
 --- !u!1 &325012800
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +403,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2029468007
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6ac5b802016c3794199603d759a7dcfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -761,7 +762,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1bc23d7f126444c4b8b515595c11f970, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 28607f2fba6189240a2032ed44619152, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -921,6 +922,7 @@ MonoBehaviour:
   hitSE: {fileID: 1060126292}
   sodaneSE: {fileID: 698675240}
   moveSE: {fileID: 495476468}
+  waitTimeSE: 1
 --- !u!1 &793880952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,7 +1093,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 104011055
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6ac5b802016c3794199603d759a7dcfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1141,9 +1143,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d8d6c0869fc4e464caa61c2caeb1a926, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5e18f4d8539b9ee41b083783d20c82c7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.62
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1551,7 +1553,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -926364387
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 3

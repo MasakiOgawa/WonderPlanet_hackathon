@@ -23,11 +23,18 @@ public class StoneMove : MonoBehaviour {
     [SerializeField]
     private AudioSource moveSE;  //ストーンの移動時の音
 
+    [SerializeField]
+    private float waitTimeSE;         //そだねーSEを再生するオフセット
+
     private Vector2 rectPos;    //XY座標
     private Vector2 twoVec;     //2点のベクトル
+    private float timeCnt = 0.0f;     //タイムカウント
 
     private bool stoneHit = false;        //2つのストーンが接触したら
     private bool flugHitSE = false;     //音がなったか
+    private bool flugSoudaneSE = false;     //そだねー音がなったか
+
+
     // Use this for initialization
     void Start () {
         objectmove = titleRef.GetComponent<ObjectMove>();
@@ -76,14 +83,22 @@ public class StoneMove : MonoBehaviour {
                     //Hit時のSE再生
                     hitSE.PlayOneShot(hitSE.clip);
 
-                    //そだねーチェック
-                    if(sodaneSE)
-                    {
-                        //そだねーのSE再生
-                        hitSE.PlayOneShot(sodaneSE.clip);
-                    }
-
                     flugHitSE = true;
+                }
+
+                //ストーンがHITしてたらSE再生待ち時間の更新
+                if(flugHitSE == true)
+                {
+                    timeCnt += Time.deltaTime;
+                }
+
+                //そだねーチェック＆2秒待ったら
+                if (flugSoudaneSE == false && sodaneSE && timeCnt > waitTimeSE)
+                {
+                    //そだねーのSE再生
+                    hitSE.PlayOneShot(sodaneSE.clip);
+
+                    flugSoudaneSE = true;
                 }
             }
         }
