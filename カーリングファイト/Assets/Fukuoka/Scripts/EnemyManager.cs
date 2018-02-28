@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour {
 
@@ -21,6 +22,11 @@ public class EnemyManager : MonoBehaviour {
     private void Update()
     {
         EnemyLifeGauge.GetComponent<GaugeController>().SetGaugeValue(Life);
+
+        if (Life <= 0)
+        {
+            SceneManager.LoadScene("GameClear");
+        }
     }
 
 
@@ -32,6 +38,10 @@ public class EnemyManager : MonoBehaviour {
     public void SubLife(int n)
     {
         Life -= n;
+        if (Life <= 0)
+        {
+            Life = 0;
+        }
     }
 
     public GameObject Generate(int nAttack)

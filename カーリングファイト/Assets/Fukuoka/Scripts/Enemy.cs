@@ -68,20 +68,20 @@ public class Enemy : MonoBehaviour {
 		rig2D.velocity = new Vector2(move.x, move.y);
 
 
-        if (move.x > 0.1f)
+        if (move.x > 0.1f || move.x < -0.1f)
         {
             move.x *= 0.99f;
         }
-        else if (move.x <= 0.1f)
+        else if (move.x <= 0.1f && move.x >= -0.1f)
         {
             move.x = 0;
         }
 
-        if (move.y > 0.1f)
+        if (move.y > 0.1f || move.y < -0.1f)
         {
             move.y *= 0.99f;
         }
-        else if (move.y <= 0.1f)
+        else if (move.y <= 0.1f && move.y >= -0.1f)
         {
             move.y = 0;
         }
@@ -95,13 +95,14 @@ public class Enemy : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity * 1.5f;
             rig2D.velocity -= rig2D.velocity * 0.001f;
         }
 
         if (collision.gameObject.tag == "EnemyUnit")
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity * 1.5f;
+            rig2D.velocity -= rig2D.velocity * 0.001f;
         }
     }
 

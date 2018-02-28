@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour {
 
@@ -21,6 +22,11 @@ public class PlayerManager : MonoBehaviour {
     private void Update()
     {
         PlayerLifeGauge.GetComponent<GaugeController>().SetGaugeValue(Life);
+
+        if (Life <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void AddLife(int n)
@@ -31,6 +37,10 @@ public class PlayerManager : MonoBehaviour {
     public void SubLife(int n)
     {
         Life -= n;
+        if (Life <= 0)
+        {
+            Life = 0;
+        }
     }
 
     public GameObject Generate(int nAttack)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Marvest.Sounds;
 
 public class Player : MonoBehaviour {
 
@@ -31,8 +32,11 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private TurnManager tm;
 
-	// Use this for initialization
-	void Awake () {
+    [SerializeField]
+    GameObject Sound = null;
+
+    // Use this for initialization
+    void Awake () {
 
         move = GetComponent<PlayerStatus>().Move;
         move = new Vector2(0, 0);
@@ -41,6 +45,8 @@ public class Player : MonoBehaviour {
 		tm = gb.GetComponent<TurnManager>();
 		mGameObjectSwipe = GameObject.Find("Swaipe");
         rig2D = GetComponent<Rigidbody2D>();
+
+        Sound = GameObject.Find("SoundEffect");
     }
 	
 	// Update is called once per frame
@@ -69,20 +75,21 @@ public class Player : MonoBehaviour {
         Debug.Log("moveX" + GetComponent<PlayerStatus>().Move.x);
         Debug.Log("moveY" + GetComponent<PlayerStatus>().Move.y);
 
-        if (move.x > 0.1f)
+        if (move.x > 0.1f || move.x < -0.1f)
         {
+            Sound.GetComponent<SoundEffect>().IceSlideSe();
             move.x *= 0.99f;
         }
-        else if (move.x <= 0.1f)
+        else if (move.x <= 0.1f && move.x >= -0.1f)
         {
             move.x = 0;
         }
 
-        if (move.y > 0.1f)
+        if (move.y > 0.1f || move.y < -0.1f)
         {
             move.y *= 0.99f;
         }
-        else if (move.y <= 0.1f)
+        else if (move.y <= 0.1f && move.y >= -0.1f)
         {
             move.y = 0;
         }
@@ -96,13 +103,15 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity * 1.5f;
             rig2D.velocity -= rig2D.velocity * 0.001f;
         }
 
         if (collision.gameObject.tag == "EnemyUnit")
         {
+            Sound.GetComponent<SoundEffect>().PlayStoneHitSe();
             collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity * 1.5f;
+            rig2D.velocity -= rig2D.velocity * 0.001f;
         }
     }
 
