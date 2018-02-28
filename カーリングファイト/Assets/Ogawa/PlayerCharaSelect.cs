@@ -6,12 +6,13 @@ public class PlayerCharaSelect : MonoBehaviour
 {
     [SerializeField]
     private TurnManager TM;
-
     [SerializeField]
     private PlayerManager PM;
-
     [SerializeField]
     private PlayerUIManager PUI;
+
+    [SerializeField]
+    private int NumChara;
 
     // Use this for initialization
     void Start()
@@ -31,7 +32,28 @@ public class PlayerCharaSelect : MonoBehaviour
         {
             if (PUI.PlayerObj == null)
             {
-                PUI.PlayerObj = PM.Generate(20);
+                switch (NumChara)
+                {
+                    case 1:
+                        PUI.PlayerObj = PM.Generate(100);
+                        PUI.PlayerObj.GetComponent<Player>().SetCharaType(1);
+                        break;
+
+                    case 2:
+                        PUI.PlayerObj = PM.Generate(200);
+                        PUI.PlayerObj.GetComponent<Player>().SetCharaType(2);
+                        break;
+
+                    case 3:
+                        PUI.PlayerObj = PM.Generate(300);
+                        PUI.PlayerObj.GetComponent<Player>().SetCharaType(3);
+                        break;
+
+                    case 4:
+                        PUI.PlayerObj = PM.Generate(400);
+                        PUI.PlayerObj.GetComponent<Player>().SetCharaType(4);
+                        break;
+                }
             }
             else if (PUI.PlayerObj != null)
             {
@@ -39,7 +61,28 @@ public class PlayerCharaSelect : MonoBehaviour
                 {
                     DestroyImmediate(PUI.PlayerObj);
 
-                    PUI.PlayerObj = PM.Generate(20);
+                    switch (NumChara)
+                    {
+                        case 1:
+                            PUI.PlayerObj = PM.Generate(100);
+                            PUI.PlayerObj.GetComponent<Player>().SetCharaType(1);
+                            break;
+
+                        case 2:
+                            PUI.PlayerObj = PM.Generate(200);
+                            PUI.PlayerObj.GetComponent<Player>().SetCharaType(2);
+                            break;
+
+                        case 3:
+                            PUI.PlayerObj = PM.Generate(300);
+                            PUI.PlayerObj.GetComponent<Player>().SetCharaType(3);
+                            break;
+
+                        case 4:
+                            PUI.PlayerObj = PM.Generate(400);
+                            PUI.PlayerObj.GetComponent<Player>().SetCharaType(4);
+                            break;
+                    }
                 }
             }
         }

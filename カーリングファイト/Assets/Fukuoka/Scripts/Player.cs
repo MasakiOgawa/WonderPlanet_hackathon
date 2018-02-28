@@ -13,8 +13,23 @@ public class Player : MonoBehaviour {
 
     public bool bUse = false;
 
-	// Use this for initialization
-	void Awake () {
+    [SerializeField]
+    private Sprite Sp1;
+
+    [SerializeField]
+    private Sprite Sp2;
+
+    [SerializeField]
+    private Sprite Sp3;
+
+    [SerializeField]
+    private Sprite Sp4;
+
+    [SerializeField]
+    private SpriteRenderer SpRen;
+
+    // Use this for initialization
+    void Awake () {
 
         move = GetComponent<PlayerStatus>().Move;
         move = new Vector2(0, 0);
@@ -75,6 +90,25 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "EnemyUnit")
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity += rig2D.velocity * 1.5f;
+        }
+    }
+
+    public void SetCharaType(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                SpRen.sprite = Sp1;
+                break;
+            case 2:
+                SpRen.sprite = Sp2;
+                break;
+            case 3:
+                SpRen.sprite = Sp3;
+                break;
+            case 4:
+                SpRen.sprite = Sp4;
+                break;
         }
     }
 }

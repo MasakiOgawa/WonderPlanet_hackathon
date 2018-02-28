@@ -415,6 +415,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   PM: {fileID: 0}
   PUI: {fileID: 114915862386076950}
+  NumChara: 2
 --- !u!114 &114247727401937548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -575,6 +576,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   PM: {fileID: 0}
   PUI: {fileID: 114915862386076950}
+  NumChara: 1
 --- !u!114 &114608715387855414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -641,6 +643,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   PM: {fileID: 0}
   PUI: {fileID: 114915862386076950}
+  NumChara: 3
 --- !u!114 &114649339852002924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -703,6 +706,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   PM: {fileID: 0}
   PUI: {fileID: 114915862386076950}
+  NumChara: 4
 --- !u!114 &114698804591059462
 MonoBehaviour:
   m_ObjectHideFlags: 1

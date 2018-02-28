@@ -221,6 +221,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   EM: {fileID: 0}
   EUI: {fileID: 114118350486895188}
+  NumChara: 4
 --- !u!114 &114118350486895188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -459,6 +460,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   EM: {fileID: 0}
   EUI: {fileID: 114118350486895188}
+  NumChara: 1
 --- !u!114 &114311399384090598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,6 +738,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   EM: {fileID: 0}
   EUI: {fileID: 114118350486895188}
+  NumChara: 3
 --- !u!114 &114714419686918212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -829,6 +832,7 @@ MonoBehaviour:
   TM: {fileID: 0}
   EM: {fileID: 0}
   EUI: {fileID: 114118350486895188}
+  NumChara: 2
 --- !u!222 &222186390292692140
 CanvasRenderer:
   m_ObjectHideFlags: 1
