@@ -25,6 +25,13 @@ public class EnemyCharacterSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EUI.EnemyObj != null)
+        {
+            if (EUI.EnemyObj.GetComponent<Player>().bUse == true)
+            {
+                EUI.EnemyObj = null;
+            }
+        }
     }
 
     public void OnClick()
