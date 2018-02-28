@@ -446,12 +446,12 @@ Prefab:
     - target: {fileID: 224488955300329164, guid: c4d0293ee0b76ab49a20f70feb1d833c,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -350
       objectReference: {fileID: 0}
     - target: {fileID: 224488955300329164, guid: c4d0293ee0b76ab49a20f70feb1d833c,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -22.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4d0293ee0b76ab49a20f70feb1d833c, type: 2}
@@ -1105,8 +1105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfbefe207cc09d4a94eabdc80792d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SeHit: {fileID: 8300000, guid: 75b612edcb4b146438d4a7d911d6b297, type: 3}
+  SeStoneHit: {fileID: 8300000, guid: d8d6c0869fc4e464caa61c2caeb1a926, type: 3}
   SeBulletHit: {fileID: 8300000, guid: 6fa0a7fd91792b347b908ef937d7f22e, type: 3}
+  SeIceSlide: {fileID: 8300000, guid: 10504cf4e3f10124db5eca528c853803, type: 3}
 --- !u!82 &1177394302
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1116,9 +1117,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3d35fe93b087347479c07201766f2c26, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1914,12 +1915,12 @@ Prefab:
     - target: {fileID: 224149471246343474, guid: 177446a0b70c13b4bb6dc61886b109f2,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -350
       objectReference: {fileID: 0}
     - target: {fileID: 224149471246343474, guid: 177446a0b70c13b4bb6dc61886b109f2,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -22.5
       objectReference: {fileID: 0}
     - target: {fileID: 224098528460479940, guid: 177446a0b70c13b4bb6dc61886b109f2,
         type: 2}
