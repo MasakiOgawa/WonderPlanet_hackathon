@@ -1525,11 +1525,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 58282233643507198, guid: 96f5498f3eb9ef446bbf6ff9517580b4,
-        type: 2}
-      propertyPath: m_Radius
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 114181947368423732, guid: 96f5498f3eb9ef446bbf6ff9517580b4,
         type: 2}
       propertyPath: pm
