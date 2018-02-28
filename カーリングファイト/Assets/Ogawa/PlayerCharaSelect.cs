@@ -23,6 +23,13 @@ public class PlayerCharaSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PUI.PlayerObj != null)
+        {
+            if (PUI.PlayerObj.GetComponent<Player>().bUse == true)
+            {
+                PUI.PlayerObj = null;
+            }
+        }
     }
 
     public void OnClick()
