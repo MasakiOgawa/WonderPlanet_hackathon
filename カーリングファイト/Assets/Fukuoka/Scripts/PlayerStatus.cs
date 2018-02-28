@@ -15,4 +15,10 @@ public class PlayerStatus : MonoBehaviour
         get;
         set;
     }
+
+	public Vector2 Move
+	{
+		get;
+		set;
+	}
 }

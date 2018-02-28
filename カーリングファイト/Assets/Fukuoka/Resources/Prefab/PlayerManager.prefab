@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Life: 500
   Flame: {fileID: 1153143214272824}
+  PlayerLifeGauge: {fileID: 0}

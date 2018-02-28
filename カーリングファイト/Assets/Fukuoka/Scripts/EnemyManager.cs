@@ -10,6 +10,20 @@ public class EnemyManager : MonoBehaviour {
 
     GameObject Obj;
 
+    [SerializeField]
+    GameObject EnemyLifeGauge = null;
+
+    private void Start()
+    {
+        EnemyLifeGauge.GetComponent<GaugeController>().SetGaugeMax(Life);
+    }
+
+    private void Update()
+    {
+        EnemyLifeGauge.GetComponent<GaugeController>().SetGaugeValue(Life);
+    }
+
+
     public void AddLife(int n)
     {
         Life += n;
@@ -20,10 +34,12 @@ public class EnemyManager : MonoBehaviour {
         Life -= n;
     }
 
-    public void Generate(int nAttack)
+    public GameObject Generate(int nAttack)
     {
-        Obj = (GameObject)Instantiate(Resources.Load("Prefab/Player"));
+        Obj = (GameObject)Instantiate(Resources.Load("Prefab/Enemy"));
         Obj.transform.parent = transform;
-        Obj.GetComponent<PlayerStatus>().Attack = nAttack;
+        Obj.GetComponent<EnemyStatus>().Attack = nAttack;
+
+        return Obj;
     }
 }

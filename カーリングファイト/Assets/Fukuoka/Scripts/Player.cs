@@ -9,10 +9,15 @@ public class Player : MonoBehaviour {
 
     Rigidbody2D rig2D;
 
-    bool bUse = false;
+    Vector2 move;
+
+    public bool bUse = false;
 
 	// Use this for initialization
 	void Awake () {
+
+        move = GetComponent<PlayerStatus>().Move;
+        move = new Vector2(0, 0);
 
         mGameObjectSwipe = GameObject.Find("Swaipe");
         rig2D = GetComponent<Rigidbody2D>();
@@ -25,11 +30,36 @@ public class Player : MonoBehaviour {
         {
             if (mGameObjectSwipe.GetComponent<Swipe>().VecPower.x > 0)
             {
-                rig2D.velocity = new Vector2(mGameObjectSwipe.GetComponent<Swipe>().VecPower.x * 0.01f,
-                        mGameObjectSwipe.GetComponent<Swipe>().VecPower.y * 0.01f);
+                move = new Vector2(mGameObjectSwipe.GetComponent<Swipe>().VecPower.x * 0.05f,
+                        mGameObjectSwipe.GetComponent<Swipe>().VecPower.y * 0.05f);
                 bUse = true;
             }
         }
+
+		rig2D.velocity = new Vector2(move.x, move.y);
+
+        Debug.Log("moveX" + GetComponent<PlayerStatus>().Move.x);
+        Debug.Log("moveY" + GetComponent<PlayerStatus>().Move.y);
+
+        if (move.x > 0.1f)
+        {
+            move.x *= 0.99f;
+        }
+        else if (move.x <= 0.1f)
+        {
+            move.x = 0;
+        }
+
+        if (move.y > 0.1f)
+        {
+            move.y *= 0.99f;
+        }
+        else if (move.y <= 0.1f)
+        {
+            move.y = 0;
+        }
+
+        GetComponent<PlayerStatus>().Move = move;
 
     }
 

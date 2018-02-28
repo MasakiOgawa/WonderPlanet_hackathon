@@ -10,6 +10,19 @@ public class PlayerManager : MonoBehaviour {
 
     GameObject Obj;
 
+    [SerializeField]
+    GameObject PlayerLifeGauge = null;
+
+    private void Start()
+    {
+        PlayerLifeGauge.GetComponent<GaugeController>().SetGaugeMax(Life);
+    }
+
+    private void Update()
+    {
+        PlayerLifeGauge.GetComponent<GaugeController>().SetGaugeValue(Life);
+    }
+
     public void AddLife(int n)
     {
         Life += n;
@@ -20,10 +33,12 @@ public class PlayerManager : MonoBehaviour {
         Life -= n;
     }
 
-    public void Generate(int nAttack)
+    public GameObject Generate(int nAttack)
     {
         Obj = (GameObject)Instantiate(Resources.Load("Prefab/Player"));
         Obj.transform.parent = transform;
         Obj.GetComponent<PlayerStatus>().Attack = nAttack;
+
+        return Obj;
     }
 }
